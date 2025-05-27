@@ -1,21 +1,22 @@
-import { Link, Outlet } from "react-router-dom"
-
+import { NavLink, Outlet} from "react-router-dom"
 import clsx from 'clsx';
+
 import styles from './header.module.scss'
 
 export const Header = () => {
     return (
         <>
         <div className={clsx(styles.menu)}>
-            <div className={clsx(styles.element, styles.element_selected)}>
-                <Link to="/voting" className={clsx(styles.link)}>Все опросы</Link>
-            </div>
-            <div className={clsx(styles.element)}>
-                <Link to="/voting/my" className={clsx(styles.link)}>Мои опросы</Link>
-            </div>
-            <div className={clsx(styles.element)}>
-                <Link to="/voting/participate" className={clsx(styles.link)}>Приняли участие</Link>
-            </div>
+            <NavLink to="/voting/all" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                Все опросы
+            </NavLink>
+            <NavLink to="/voting/my" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                Мои опросы
+            </NavLink>
+            <NavLink to="/voting/participate" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                Приняли участие
+            </NavLink>
+      
         </div>
         <Outlet />
         </>
