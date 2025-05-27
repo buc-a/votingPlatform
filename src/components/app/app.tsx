@@ -21,7 +21,7 @@ export const router = createBrowserRouter(
     <Route path="*" element={<h1>Страница не найдена</h1>} />
     <Route path="/login" element={<Login />} />
     <Route path="/create" element={<CreateFrom />} />
-    <Route path="/voting" element={<Header />} >
+    <Route path="/" element={<Header />} >
         <Route path="all" element={<AllVotings />} />
         <Route path="my" element={<MyVotings />} />
         <Route path="participate" element={<PartVotings />} />
