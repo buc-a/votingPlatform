@@ -27,8 +27,10 @@ export const router = createBrowserRouter(
         <Route path="participate" element={<PartVotings />} />
     </Route>
     
-    </>
-  )
+    </>),
+    {
+    basename: process.env.PUBLIC_PATH || '/'  // Добавляем basename здесь
+  }
 ); 
 
 export const App = () => {
