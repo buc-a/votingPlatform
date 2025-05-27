@@ -1,0 +1,86 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F8F8F8;
+    border-radius: 20px;
+    padding: 2vh;
+    padding-left: 4vh;
+    font-family: 'Inter';
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+}
+p{
+    margin: 0;
+}
+.card_text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3vh;
+    margin: 0;
+    gap: 2vh;
+    width: 50%;
+}
+
+.title {
+    margin: 0;
+    font-weight: 900;
+    font-size: 6vh;
+    color: #3C743A;
+    justify-self: center;
+    line-height: 1;
+    margin-bottom: 2vh;
+}
+
+.description {
+    margin: 0;
+    font-weight:500;
+    font-size: 3vh;
+    color: #676565;
+}
+
+.avatar {
+    justify-self:center;
+    align-self: center;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    border-width: 10px;
+    border-color: #3C743A;
+    border-style: solid;
+    object-fit: cover;
+}
+.card_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.variants {
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 33px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: flex-end;
+    margin-bottom: 27px;
+    margin-right: 25px;
+    font-weight: 300;
+    gap: 25px;
+    font-size: 24px;
+    margin: 0;
+    color: #676565;
+    margin-bottom: 18px;
+}
+
+.detailButton {
+    width: 40px;
+    height: 40px;
+    margin-bottom: -5px;
+    margin-right: 28px;
+}

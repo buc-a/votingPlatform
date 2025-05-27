@@ -1,0 +1,42 @@
+.container {
+    margin: 3vh; 
+}
+
+.top {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.addButton {
+    width: 12vh;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+}
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+  width: 90vw;
+  height: 90vh;
+  overflow: auto;
+  border-radius: 50px;
+  background-color: #F8F8F8;
+
+}
+
+.modal:focus-visible {
+  outline: none;
+}
+
+
+

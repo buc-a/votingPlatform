@@ -1,0 +1,59 @@
+.variant {
+    
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.variant_info {
+    width: 30vw;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.variant_name {
+    font-size: 4vh;
+}
+
+.variant_count{
+    font-size: 2vh;
+
+}
+
+.optionCircle {
+    justify-self: center;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    border: 3px solid #3C743A; 
+    background-color: #ddd; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.optionCircle_active {
+  background-color: #3C743A; 
+}
+
+.voteBarContainer {
+  width: 100%;
+  height: 6px;
+  background-color: #ccc; 
+  border-radius: 3px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.voteBar {
+  width: 70%;
+  height: 100%;
+  background-color: #2e7d32; 
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}

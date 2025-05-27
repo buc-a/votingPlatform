@@ -1,0 +1,21 @@
+.top {
+    display: flex;
+    justify-content: right;
+    padding-bottom: 30px;
+    margin-right: 40px;
+    
+}
+
+.addButton {
+    
+    width: 125px;
+    height: 125px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-left: 40px;
+    margin-right: 150px;
+}
