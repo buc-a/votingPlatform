@@ -10,13 +10,13 @@ import { Voting } from '../../utils/constants';
 import { Api } from '../../utils/api';
 import { FullCard } from '../../components/fullCard/fullCard'
 const api = new Api('/api');
-
+import { registerUserThunk, getUserSelector, clearUser } from '../../slices/userSlice';
+import { useDispatch, useSelector} from '../../utils/store';
 
 export const AllVotings = () => {
     const [votings, setVotings] = useState<Voting[]>([]);
     const [selectedVoting, setSelectedVoting] = useState<Voting | null>(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
     const openModal = (data: Voting) => {
         setModalIsOpen(true);
         setSelectedVoting(data);

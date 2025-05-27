@@ -13,3 +13,7 @@ export type Voting = {
     variants: Variant[],
     photo: string
 }
+
+export type IUser = {
+  name: string;
+};

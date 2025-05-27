@@ -1,6 +1,53 @@
 
 export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
 
+
+export type TRegisterData = {
+  name: string;
+  password: string;
+};
+
+const baseUrl = 'http://localhost:8000';
+
+export type TRegisterResponse = {
+    username: string;
+    access_token: string;
+    token_type: string;
+};
+
+const checkResponse = <T>(res: Response): Promise<T> =>
+  res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+
+export const registerUserApi = (data: TRegisterData) =>{
+    return fetch(baseUrl + '/register/', {  
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: data.name,  
+            password: data.password
+        }),
+    })
+    .then(checkResponse<TRegisterResponse>);
+}
+
+export const loginUserApi = (data: TRegisterData) => {
+  const formData = new URLSearchParams();
+  formData.append("username", data.name);
+  formData.append("password", data.password);
+
+  return fetch(baseUrl + '/token/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: formData.toString(),
+  }).then(checkResponse<TRegisterResponse>);
+};
+
+
+
 export class Api {
     readonly baseUrl: string;
     protected options: RequestInit;
