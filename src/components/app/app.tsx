@@ -33,7 +33,8 @@ export const router = createBrowserRouter(
 export const App = () => {
     return (
         <StrictMode>
-            <RouterProvider router={router}>
+            <RouterProvider router={router} 
+            basename={process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/'}>
                 
             </RouterProvider>
             

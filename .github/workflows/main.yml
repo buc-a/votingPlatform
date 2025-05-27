@@ -14,7 +14,7 @@ permissions:
   id-token: write # Разрешаем использовать GITHUB_TOKEN
 
 env:
-  PUBLIC_PATH: /github_actions/
+  PUBLIC_PATH: /votingPlatform/
   
 jobs: # Секция jobs определяет этапы процесса
  
