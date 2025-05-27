@@ -3,7 +3,7 @@ name: Deploy static content to Pages
 on:
   # Триггером выступает push в ветку master
   push:
-    branches: ['master']
+    branches: ['main']
   # Позволяет запустить этот рабочий процесс вручную на вкладке Actions tab
   workflow_dispatch:
   
