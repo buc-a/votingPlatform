@@ -1,12 +1,19 @@
 .buttons {
     display: flex;
+    height: 100%;
     width: 100%;
-    gap: 50px;
+    gap: 5vw;
     justify-self: right;
     justify-content: right;
     align-items: center;
 }
 
 .button{
-    width: 6vh;
+    width: 5vw;
+}
+
+@media (max-width: 450px) {
+    .buttons {
+        margin-top: 2vw;
+    }
 }

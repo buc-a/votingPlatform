@@ -1,7 +1,8 @@
 .menu {
   display: flex;
+  height: 8vh;
   background-color: #F8F8F8;
-  
+  width: 100vw;
 }
 
 .links{
@@ -14,14 +15,15 @@
 .element {
     color: #000;
     text-decoration: none;
-    width: 30vh;
-    height: 8vh;
+    width: 18vw;
+    height: 100;
     font-size: 3vh;
     font-family: 'Inter';
     font-weight: lighter;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .element_selected {
@@ -33,6 +35,16 @@
 }
 
 .logout{
-  height: 4vh;
+  height: 4vw;
   margin: 1%;
+  align-self: center;
+}
+
+@media (max-width: 450px) {
+  .element{
+    font-size: 4vw;
+  }
+  .logout {
+    height: 10vw;
+  }
 }

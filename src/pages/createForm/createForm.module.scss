@@ -3,15 +3,24 @@
     padding: 8vh 0;
     align-items:flex-start;
     gap: 7vh;
-    
+    width: 100%;
     margin-right: 26vw;
     margin-left: 4vw;
 
 }
 .arrow {
     transform: scaleX(-1);
-    width: 12vh;
+    width: 10vw;
 
+}
+
+@media (max-width: 450px) {
+    .arrow {
+        width: 15vw;
+    }
+    .main {
+        gap: 2vw;
+    }
 }
 
 

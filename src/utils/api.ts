@@ -7,7 +7,7 @@ export type TRegisterData = {
   password: string;
 };
 
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'http://172.20.10.2:8000';
 
 export type TRegisterResponse = {
     username: string;

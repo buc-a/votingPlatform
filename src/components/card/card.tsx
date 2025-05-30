@@ -35,18 +35,18 @@ export const Card = ({ data,
     },[data])
 
     return (
-        <div className={clsx(styles.card)}>
-            <div className={clsx(styles.card_text)}>
-                <p className={clsx(styles.title)}>{data.name}</p>
+        <div className={clsx(styles.card)} lang="ru">
+            <div className={clsx(styles.card__text)}>
+                <p className={clsx(styles.card__title)}>{data.name}</p>
                 {
-                    isDescription && <p className={clsx(styles.description)}>{data.description}</p>
+                    isDescription && <p className={clsx(styles.card__description)}>{data.description}</p>
                 }
             </div>
             {
-                isAvatar && <img className={clsx(styles.avatar)} src={data.photo}></img>
+                isAvatar && <img className={clsx(styles.card__avatar)} src={data.photo}></img>
             }
-            <div className={clsx(styles.card_right)}>  
-                <div className={clsx(styles.variants)}>
+            <div className={clsx(styles.card__right)}>  
+                <div className={clsx(styles.card__variants)}>
                     {isVariants && data.variants.map(variant => (
                         <Variant key={variant.id} data={variant} maxVotes={maxVotes}/>
                     ))}
@@ -54,15 +54,18 @@ export const Card = ({ data,
                 </div>         
             {
                 isDetail && onClick &&
-                <div className={clsx(styles.detail)} onClick={() => onClick(data)}>
+                <div className={clsx(styles.card__detail)} onClick={() => onClick(data)}>
                     <p>Подробнее</p>
-                    <img className={clsx(styles.detailButton)} src={arrow} alt="details"></img>
+                    <img className={clsx(styles.card__detail__detailButton)} src={arrow} alt="details"></img>
                 </div>
             }
+            </div >
+            <div className={clsx(styles.card__children)}>
+                {
+                    children 
+                }              
             </div>
-            {
-                children 
-            }
+
         </div>
     )
 }

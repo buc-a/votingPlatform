@@ -95,12 +95,19 @@ export const Form = () => {
                 </div>
                 <label className={clsx(styles.form_button)}>
                     Добавить фото
-                    <input ref={filesRef} type="file" hidden onChange={uploadImage}/>
+                    <input 
+                        ref={filesRef} 
+                        
+                        type="file" 
+                        hidden 
+                        onChange={uploadImage}
+                        />
                 </label>
             </div>
             <div className={clsx(styles.form_element)}>
                 <label htmlFor="title">Название:</label>
                 <input 
+                    className={clsx(styles.form__input)}
                     type="text" id="title" name="title" 
                     placeholder="Введите название опроса..." 
                     onChange={handleNameChange}
@@ -113,6 +120,7 @@ export const Form = () => {
             <div className={clsx(styles.form_element)}>
                 <label htmlFor="description">Описание:</label>
                 <input
+                    className={clsx(styles.form__input)}
                     type="text"
                     id="description"
                     name="description"
@@ -131,11 +139,12 @@ export const Form = () => {
                         {variants.map((option, index) => (
                             <input
                                 key={index}
+                                className={clsx(styles.form__input)}
                                 type="text"
                                 value={option}
                                 onChange={(e) => handleVariantChange(index, e.target.value)}
                                 placeholder={`Вариант ответа ${index + 1}...`}
-                                className={clsx(styles.input)}
+                                
                             />
                         ))}
                     </div>

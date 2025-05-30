@@ -1,9 +1,9 @@
 .variant {
     
-    height: 80px;
+    
     display: flex;
     flex-direction: row;
-    gap: 90px;
+    gap: 5vw;
     justify-content: center;
     align-items: center;
     
@@ -18,20 +18,20 @@
 }
 
 .variant_name {
-    font-size: 4vh;
+    font-size: 2vw;
 }
 
 .variant_count{
-    font-size: 2vh;
+    font-size: 1vw;
 
 }
 
 .optionCircle {
     justify-self: center;
-    width: 4vh;
-    height: 4vh;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
-    border: 3px solid #3C743A; 
+    border: 0.2vw solid #3C743A; 
     background-color: #ddd; 
     cursor: pointer;
     transition: background-color 0.3s;
@@ -56,4 +56,19 @@
   background-color: #2e7d32; 
   border-radius: 3px;
   transition: width 0.3s ease;
+}
+
+@media (max-width: 450px) {
+  .variant_name {
+      font-size: 5vw;
+  }
+
+  .variant_count{
+      font-size: 3vw;
+
+  }
+  .optionCircle {
+    width: 4vw;
+    height: 4vw;
+  }
 }

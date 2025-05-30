@@ -1,21 +1,21 @@
 .top {
     display: flex;
     justify-content: right;
-    padding-bottom: 30px;
-    margin-right: 40px;
+    padding-bottom: 2vw;
+    margin-right: 4vw;
     
 }
 
 .addButton {
     
-    width: 125px;
-    height: 125px;
+    width: 10vw;
+    height: 10vw;
 }
 
 .list {
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    margin-left: 40px;
-    margin-right: 150px;
+    gap: 6vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
 }
