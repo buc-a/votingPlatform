@@ -29,7 +29,7 @@ export const router = createBrowserRouter(
     <Route 
       path="/create" 
       element={<ProtectedRoute forAuthorizedUser={true}><CreateFrom /></ProtectedRoute>} />
-    <Route path="/voting" element={<Header />} >
+    <Route path="/" element={<Header />} >
         <Route 
           path="all" 
           element={<AllVotings />} />
