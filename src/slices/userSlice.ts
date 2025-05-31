@@ -4,6 +4,7 @@ import { TRegisterData, registerUserApi,  loginUserApi} from '../utils/api'
 import { setCookie} from '../utils/cookie';
 export interface UserState {
   login: string | null;
+  isLoading: boolean;
   isAuthorized: boolean;
   error: string | null;
 }
@@ -11,7 +12,8 @@ export interface UserState {
 const initialState: UserState = {
   login: null,
   isAuthorized: false,
-  error: null
+  error: null,
+  isLoading: false
 };
 
 const registerUserThunk = createAsyncThunk(
@@ -37,11 +39,11 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerUserThunk.pending, (state) => {
-        console.log("pending")
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(registerUserThunk.fulfilled, (state, { payload }) => {
-        console.log("fulfil")
+        state.isLoading = false;
         state.login = payload.username;
         state.isAuthorized = true;
         state.error = null;
@@ -49,16 +51,16 @@ export const userSlice = createSlice({
         
       })
       .addCase(registerUserThunk.rejected, (state, { payload }) => {
-        console.log("rejected")
+        state.isLoading = false;
         state.error = payload as string;
         state.isAuthorized = false;
       })
       .addCase(loginUserThunk.pending, (state) => {
-        console.log("pending")
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(loginUserThunk.fulfilled, (state, { payload }) => {
-        console.log("fulfil")
+        state.isLoading = false;
         state.login = payload.username;
         state.isAuthorized = true;
         state.error = null;
@@ -66,7 +68,7 @@ export const userSlice = createSlice({
         
       })
       .addCase(loginUserThunk.rejected, (state, { payload }) => {
-        console.log("rejected")
+        state.isLoading = false;
         state.error = payload as string;
         state.isAuthorized = false;
       });

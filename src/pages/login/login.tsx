@@ -9,6 +9,7 @@ export const Login = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const error = useSelector(getUserSelector).error;
+    const isLoading = useSelector(getUserSelector).isLoading;
 
     const onClickRegister = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -28,8 +29,10 @@ export const Login = () => {
 
     return (
         <div className={clsx(styles.container)}>
+            {isLoading && <div className={styles.loading}>Загрузка...</div>}
+            {error && <div className={styles.error}>{error}</div>}
             <form className={clsx(styles.form)}>
-
+                
                 <input 
                     type="text" 
                     id="login" 

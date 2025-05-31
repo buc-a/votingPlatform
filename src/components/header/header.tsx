@@ -19,13 +19,13 @@ export const Header = () => {
                 src={logoutImage}
                 onClick={onClickLogout}></img>
             <div className={clsx(styles.links)}>
-                <NavLink to="/all" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                <NavLink to="/voting/all" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
                     Все опросы
                 </NavLink>
-                <NavLink to="/my" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                <NavLink to="/voting/my" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
                     Мои опросы
                 </NavLink>
-                <NavLink to="/participate" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
+                <NavLink to="/voting/participate" className={({ isActive }) => clsx(styles.element, isActive && styles.element_selected)}>
                     Приняли участие
                 </NavLink>
             </div>

@@ -34,6 +34,7 @@ export const AllVotings = () => {
     
     useEffect(() => {
         const data = api.get("/all") as Voting[];
+        
         setVotings(data);
     }, []);
 

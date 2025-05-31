@@ -7,7 +7,7 @@ export type TRegisterData = {
   password: string;
 };
 
-const baseUrl = 'http://172.20.10.2:8000';
+const baseUrl = 'http://158.160.90.212:8000';
 
 export type TRegisterResponse = {
     username: string;
@@ -46,6 +46,52 @@ export const loginUserApi = (data: TRegisterData) => {
   }).then(checkResponse<TRegisterResponse>);
 };
 
+export type Poll = {
+  id: number;
+  name: string;
+  description: string | null;
+  owner_username: string;
+  options: string[];
+};
+
+export const getAllVotingsApi = () => {
+  return fetch(`${baseUrl}/all`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(checkResponse<any[]>);
+};
+
+export const getVotingsByOwnerApi = (ownerId: string) => {
+  return fetch(`${baseUrl}/votings?owner=${ownerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(checkResponse<any[]>);
+};
+
+export const getParticipatedVotingsApi = (userId: string) => {
+  return fetch(`${baseUrl}/part?user=${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(checkResponse<any[]>);
+};
+
+export const createVotingApi = (data: object) => {
+  return fetch(`${baseUrl}/votings`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then(checkResponse<any>);
+};
+
+
 
 
 export class Api {
@@ -77,24 +123,30 @@ export class Api {
                 description: "Ученые выяснили, что самая важная часть дня - утро. Поделитесь тем, чем вы его начинаете: бодрящий кофе или сладкий чай?",
                 photo: 'https://avatars.mds.yandex.net/i?id=d740c540e95bf3f94b775d202cb75d19_l-8287363-images-thumbs&n=13',
                 variants: [
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 32, selected: false},
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 22, selected: true}
+                    {name: 'Кофе', count: 22, selected: true},
+                    {name: 'Чай', count: 32, selected: false}
                 ]  
             },{
-                id: '1234',
+                id: '1235',
                 owner: '2223',
-                name: 'Привлечение к ответственности Адама Кадырова',
-                description: "Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме. Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме",
-                photo: 'https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_66cbbad76e0d2e2fbef8bdbb_66cbbada6e0d2e2fbef8c149/scale_1200',
+                name: 'Ваш любимый язык программирования',
+                description: "Поделитесь своими предпочтениями",
+                photo: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/20706947/original/6ed03a6143dc49fac0db697e5f026c3f0844b24a/do-all-programming-assignments-for-you.png',
                 variants: [
-                    {name: 'За', count: 22, selected: false},
-                    {name: 'Против', count: 32, selected: false},
-                ]  
-            }]            
+                    {name: 'Java', count: 22, selected: false},
+                    {name: 'C++', count: 40, selected: false},
+                    {name: 'Python', count: 10, selected: false}                ]  
+            },{
+                id: '1236',
+                owner: '2224',
+                name: 'Вырубка леса на Воробьевых горах',
+                description: "Отстоим лес у предпринимателей!",
+                photo: 'https://willtowers.ru/upload/iblock/569/k7kbn6ba5fwgaozqfm0l40ps9o9za8j9.jpg',
+                variants: [
+                    {name: 'За', count: 10, selected: false},
+                    {name: 'Против', count: 50, selected: false}                ]  
+            },
+        ]            
         }
 
         else if (uri === "/votings?owner=1234"){
@@ -105,52 +157,41 @@ export class Api {
                 description: "Ученые выяснили, что самая важная часть дня - утро. Поделитесь тем, чем вы его начинаете: бодрящий кофе или сладкий чай?",
                 photo: 'https://avatars.mds.yandex.net/i?id=d740c540e95bf3f94b775d202cb75d19_l-8287363-images-thumbs&n=13',
                 variants: [
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 32, selected: false},
+                    {name: 'Кофе', count: 22, selected: true},
+                    {name: 'Чай', count: 32, selected: false}
                 ]  
             },{
-                id: '1234',
+                id: '1235',
                 owner: '2223',
-                name: 'Привлечение к ответственности Адама Кадырова',
-                description: "Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме. Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме",
-                photo: 'https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_66cbbad76e0d2e2fbef8bdbb_66cbbada6e0d2e2fbef8c149/scale_1200',
+                name: 'Ваш любимый язык программирования',
+                description: "Поделитесь своими предпочтениями",
+                photo: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/20706947/original/6ed03a6143dc49fac0db697e5f026c3f0844b24a/do-all-programming-assignments-for-you.png',
                 variants: [
-                    {name: 'За', count: 22, selected: false},
-                    {name: 'Против', count: 32, selected: false},
-                ]  
+                    {name: 'Java', count: 22, selected: false},
+                    {name: 'C++', count: 40, selected: false},
+                    {name: 'Python', count: 10, selected: false}                ]  
             }]  
         }
         else if (uri === "/part?user=2222"){
             return [{
-                id: '1234',
-                owner: '2222',
-                name: 'Кофе или чай?',
-                description: "Ученые выяснили, что самая важная часть дня - утро. Поделитесь тем, чем вы его начинаете: бодрящий кофе или сладкий чай?",
-                photo: 'https://avatars.mds.yandex.net/i?id=d740c540e95bf3f94b775d202cb75d19_l-8287363-images-thumbs&n=13',
+                id: '1236',
+                owner: '2224',
+                name: 'Вырубка леса на Воробьевых горах',
+                description: "Отстоим лес у предпринимателей!",
+                photo: 'https://willtowers.ru/upload/iblock/569/k7kbn6ba5fwgaozqfm0l40ps9o9za8j9.jpg',
                 variants: [
-                    {name: 'Чай', count: 22, selected: true},
-                    {name: 'Чай', count: 32, selected: false},
-                ]  
-            },{
-                id: '1234',
-                owner: '2223',
-                name: 'Привлечение к ответственности Адама Кадырова. Зверь должен находиться в клетке. Привлечение к ответственности Адама Кадырова. Привлечение к ответственности Адама Кадырова. Зверь должен находиться в клетке. Привлечение к ответственности Адама Кадырова.',
-                description: "Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме. Адам Кадыров, избивший журналиста Никиту Журавеля, должен сидеть в тюрьме",
-                photo: 'https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_66cbbad76e0d2e2fbef8bdbb_66cbbada6e0d2e2fbef8c149/scale_1200',
-                variants: [
-                    {name: 'За', count: 22, selected: true},
-                    {name: 'Против', count: 32, selected: false},
-                ]  
+                    {name: 'За', count: 10, selected: false},
+                    {name: 'Против', count: 50, selected: false}                ]  
             }]  
         }
-        /*
+        
         return fetch(this.baseUrl + uri, {
             ...this.options,
             method: 'GET'
         }).then(this.handleResponse);
-        */
+        
     }
-
+    /*
     post(uri: string, data: object, method: ApiPostMethods = 'POST') {
         return fetch(this.baseUrl + uri, {
             ...this.options,
@@ -158,4 +199,5 @@ export class Api {
             body: JSON.stringify(data)
         }).then(this.handleResponse);
     }
+        */
 }

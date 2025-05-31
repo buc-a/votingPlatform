@@ -16,7 +16,7 @@ export const MyVotings = () => {
     const [votings, setVotings] = useState<Voting[]>([]);
 
     useEffect(() => {
-        const data = api.get("/all") as Voting[];
+        const data = api.get("/votings?owner=1234") as Voting[];
         setVotings(data);
     }, []);
 

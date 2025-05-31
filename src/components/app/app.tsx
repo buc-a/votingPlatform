@@ -29,7 +29,7 @@ export const router = createBrowserRouter(
     <Route 
       path="/create" 
       element={<ProtectedRoute forAuthorizedUser={true}><CreateFrom /></ProtectedRoute>} />
-    <Route path="/" element={<Header />} >
+    <Route path="/voting" element={<Header />} >
         <Route 
           path="all" 
           element={<AllVotings />} />
@@ -40,7 +40,6 @@ export const router = createBrowserRouter(
           path="participate" 
           element={<ProtectedRoute forAuthorizedUser={true}><PartVotings /></ProtectedRoute>} />
     </Route>
-    
     </>),
     {
       basename: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/'
